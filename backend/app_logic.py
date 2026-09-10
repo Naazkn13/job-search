@@ -6,12 +6,10 @@ Business logic for tracker, tailoring, and submit-prompt flow.
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict
 
-from fastapi import HTTPException
-
-from models import Application, ProjectShowcase
-from resume_builder import build_ready_pack, load_resume_source
+from models import Application
+from resume_builder import build_ready_pack
 
 
 def pick_resume_version(jd_text: str, preferred_version: str) -> str:
