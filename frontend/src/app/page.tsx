@@ -6,10 +6,13 @@ import ApplicationList from "@/components/ApplicationList";
 import ApplicationDetail from "@/components/ApplicationDetail";
 import ApplicationForm from "@/components/ApplicationForm";
 import SubmitPrompt from "@/components/SubmitPrompt";
+import ResumeTailor from "@/components/ResumeTailor";
+import InterviewPrep from "@/components/InterviewPrep";
+import ProjectShowcase from "@/components/ProjectShowcase";
 import type { Application } from "@/types/application";
 import { fetchApplications } from "@/lib/applications";
 
-type Page = "dashboard" | "applications" | "add" | "submit-prompt";
+type Page = "dashboard" | "applications" | "add" | "submit-prompt" | "resume" | "prep" | "showcase";
 
 export default function Home() {
   const [page, setPage] = useState<Page>("dashboard");
@@ -18,9 +21,11 @@ export default function Home() {
   const [submitQueue, setSubmitQueue] = useState<Application[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [resumeVersions, setResumeVersions] = useState<Array<{ version: string; label: string }>>([]);
 
   useEffect(() => {
     refresh();
+    loadResumeVersions();
   }, []);
 
   const refresh = async () => {
@@ -33,6 +38,19 @@ export default function Home() {
       console.error("Failed to refresh", err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const loadResumeVersions = async () => {
+    try {
+      const res = await fetch(`${process.env.NEXT_LOCAL_API_URL}/api/resume/versions`);
+      if (!res.ok) throw new Error("Failed to load resume versions");
+      const data = await res.json();
+      setResumeVersions(
+        data.versions.map((v: string) => ({ version: v, label: data.labels[v] }))
+      );
+    } catch (err) {
+      console.error("Failed to load resume versions", err);
     }
   };
 
@@ -58,7 +76,6 @@ export default function Home() {
         `${process.env.NEXT_LOCAL_API_URL}/api/applications/${id}/submit-prompt`,
         { method: "POST" }
       );
-
       if (!res.ok) throw new Error("Failed to mark submitted");
       await refresh();
     } catch (err) {
@@ -81,8 +98,11 @@ export default function Home() {
       >
         <NavButton label="Dashboard" active={page === "dashboard"} onClick={() => setPage("dashboard")} />
         <NavButton label="Applications" active={page === "applications"} onClick={() => setPage("applications")} />
-        <NavButton label="Add Application" active={page === "add"} onClick={() => setPage("add")} />
+        <NavButton label="Add" active={page === "add"} onClick={() => setPage("add")} />
         <NavButton label="Submit Queue" active={page === "submit-prompt"} onClick={() => setPage("submit-prompt")} />
+        <NavButton label="Resume" active={page === "resume"} onClick={() => setPage("resume")} />
+        <NavButton label="Prep" active={page === "prep"} onClick={() => setPage("prep")} />
+        <NavButton label="Showcase" active={page === "showcase"} onClick={() => setPage("showcase")} />
       </nav>
 
       <main style={{ padding: "1rem" }}>
@@ -103,6 +123,9 @@ export default function Home() {
             {page === "submit-prompt" && (
               <SubmitPrompt applications={submitQueue} onSubmit={handleSubmitPrompt} submitting={submitting} />
             )}
+            {page === "resume" && <ResumeTailor versions={resumeVersions} />}
+            {page === "prep" && <InterviewPrep />}
+            {page === "showcase" && <ProjectShowcase />}
           </>
         )}
       </main>
