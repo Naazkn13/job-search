@@ -1,7 +1,6 @@
 import type { Application } from "@/types/application";
-import { fetchApplications } from "@/lib/applications";
 
-export async function loadApplications(filters?: {
+export async function fetchApplications(filters?: {
   status?: string;
   resume_version?: string;
   company_id?: string;

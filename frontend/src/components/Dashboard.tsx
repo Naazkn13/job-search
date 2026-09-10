@@ -1,5 +1,6 @@
 import { FC, useState, useMemo } from "react";
 import type { Application, ApplicationStatus, RESUME_LABELS, STATUS_LABELS, STATUS_ORDER } from "@/types/application";
+import { StatusBadge } from "@/components";
 
 const statusLabels: Record<ApplicationStatus, string> = {
   planned: "Planned",
@@ -165,7 +166,7 @@ const Section: FC<{ title: string; children: React.ReactNode }> = ({
   </div>
 );
 
-const EmptyNote: FC = () => (
+const EmptyNote: FC<{ children?: React.ReactNode }> = ({ children }) => (
   <div
     style={{
       color: "#6b7280",
@@ -173,7 +174,7 @@ const EmptyNote: FC = () => (
       padding: "0.75rem 0",
     }}
   >
-    No applications yet. Add one to get started.
+    {children}
   </div>
 );
 

@@ -1,3 +1,17 @@
+export type ApplicationStatus =
+  | "planned"
+  | "prepared"
+  | "applied"
+  | "assessment"
+  | "interview_1"
+  | "interview_2"
+  | "hr"
+  | "offer"
+  | "rejected"
+  | "withdrawn";
+
+export type ResumeVersion = "A" | "B" | "C";
+
 export type Application = {
   id: string;
   company_id: string | null;

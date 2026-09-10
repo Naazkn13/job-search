@@ -10,7 +10,7 @@ import json
 import pathlib
 from typing import Any, Dict, List
 
-PREP_SOURCE_PATH = pathlib.Path(__file__).resolve().parent / "prep" / "questions.json"
+PREP_SOURCE_PATH = pathlib.Path(__file__).resolve().parent / "questions.json"
 
 
 def load_prep_source() -> Dict[str, Any]:

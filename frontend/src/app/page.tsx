@@ -7,7 +7,7 @@ import ApplicationDetail from "@/components/ApplicationDetail";
 import ApplicationForm from "@/components/ApplicationForm";
 import SubmitPrompt from "@/components/SubmitPrompt";
 import type { Application } from "@/types/application";
-import { loadApplications } from "@/lib/data";
+import { fetchApplications } from "@/lib/applications";
 
 type Page = "dashboard" | "applications" | "add" | "submit-prompt";
 
@@ -26,9 +26,9 @@ export default function Home() {
   const refresh = async () => {
     setLoading(true);
     try {
-      const apps = await loadApplications();
+      const apps = await fetchApplications();
       setApplications(apps);
-      refreshSubmitQueue(apps);
+      setSubmitQueue(apps.filter((a) => a.status === "prepared" || a.status === "planned"));
     } catch (err) {
       console.error("Failed to refresh", err);
     } finally {
@@ -67,10 +67,6 @@ export default function Home() {
     }
   };
 
-  const refreshSubmitQueue = (apps: Application[]) => {
-    setSubmitQueue(apps.filter((a) => a.status === "prepared" || a.status === "planned"));
-  };
-
   return (
     <div style={{ fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, Arial", minHeight: "100vh", backgroundColor: "#f3f4f6" }}>
       <nav
@@ -82,33 +78,15 @@ export default function Home() {
           flexWrap: "wrap",
         }}
       >
-        <NavButton
-          label="Dashboard"
-          active={page === "dashboard"}
-          onClick={() => setPage("dashboard")}
-        />
-        <NavButton
-          label="Applications"
-          active={page === "applications"}
-          onClick={() => setPage("applications")}
-        />
-        <NavButton
-          label="Add Application"
-          active={page === "add"}
-          onClick={() => setPage("add")}
-        />
-        <NavButton
-          label="Submit Queue"
-          active={page === "submit-prompt"}
-          onClick={() => setPage("submit-prompt")}
-        />
+        <NavButton label="Dashboard" active={page === "dashboard"} onClick={() => setPage("dashboard")} />
+        <NavButton label="Applications" active={page === "applications"} onClick={() => setPage("applications")} />
+        <NavButton label="Add Application" active={page === "add"} onClick={() => setPage("add")} />
+        <NavButton label="Submit Queue" active={page === "submit-prompt"} onClick={() => setPage("submit-prompt")} />
       </nav>
 
       <main style={{ padding: "1rem" }}>
         {loading ? (
-          <div style={{ padding: "4rem", textAlign: "center", color: "#6b7280" }}>
-            Loading...
-          </div>
+          <div style={{ padding: "4rem", textAlign: "center", color: "#6b7280" }}>Loading...</div>
         ) : (
           <>
             {page === "dashboard" && <Dashboard applications={applications} />}
@@ -122,11 +100,7 @@ export default function Home() {
             )}
             {page === "add" && <ApplicationForm onSubmit={handleAdd} />}
             {page === "submit-prompt" && (
-              <SubmitPrompt
-                applications={submitQueue}
-                onSubmit={handleSubmitPrompt}
-                submitting={submitting}
-              />
+              <SubmitPrompt applications={submitQueue} onSubmit={handleSubmitPrompt} submitting={submitting} />
             )}
           </>
         )}
@@ -135,11 +109,7 @@ export default function Home() {
   );
 }
 
-const NavButton: React.FC<{
-  label: string;
-  active: boolean;
-  onClick: () => void;
-}> = ({ label, active, onClick }) => (
+const NavButton: React.FC<{ label: string; active: boolean; onClick: () => void }> = ({ label, active, onClick }) => (
   <button
     type="button"
     onClick={onClick}
