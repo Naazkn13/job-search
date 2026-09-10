@@ -58,6 +58,7 @@ export default function Home() {
         `${process.env.NEXT_LOCAL_API_URL}/api/applications/${id}/submit-prompt`,
         { method: "POST" }
       );
+
       if (!res.ok) throw new Error("Failed to mark submitted");
       await refresh();
     } catch (err) {

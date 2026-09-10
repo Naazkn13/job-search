@@ -15,6 +15,7 @@ from contextlib import asynccontextmanager
 from typing import Any, Dict, List, Optional
 
 import httpx
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -27,6 +28,9 @@ from supabase_client import (
     supabase_select,
     supabase_update,
 )
+
+# Load .env file
+load_dotenv()
 
 SUPABASE_URL = os.getenv("SUPABASE_URL", "").rstrip("/")
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "")
@@ -126,7 +130,7 @@ def build_resume_pack(
 
 
 @app.post("/api/companies")
-async def create_company(payload: Dict[str, Any]) -> Dict[str, Any]:
+async def create_company(payload: Dict[str, Any]) -> Any:
     if not SUPABASE_URL:
         raise HTTPException(status_code=503, detail="Supabase not configured")
     result = await supabase_insert("companies", payload)
@@ -147,13 +151,30 @@ async def list_companies() -> List[Dict[str, Any]]:
 
 
 @app.post("/api/applications")
-async def create_application(application: Application) -> Dict[str, Any]:
+async def create_application(application: Application) -> Any:
     if not SUPABASE_URL:
         raise HTTPException(status_code=503, detail="Supabase not configured")
+    
+    # Look up company by name if company_name provided but no company_id
+    company_id = application.company_id
+    if not company_id and application.company_name:
+        company_rows = await supabase_select("companies", filter_={"name": "eq." + application.company_name})
+        if company_rows:
+            company_id = company_rows[0]["id"]
+        else:
+            company_result = await supabase_insert("companies", {"name": application.company_name}, use_service_role=True)
+            if isinstance(company_result, list) and company_result:
+                company_id = company_result[0]["id"]
+            elif isinstance(company_result, dict) and company_result.get("id"):
+                company_id = company_result["id"]
+    
     payload = application.serialize()
     payload.pop("id", None)
     payload.pop("created_at", None)
     payload.pop("updated_at", None)
+    payload.pop("company_name", None)  # Not a column in applications table
+    payload["company_id"] = company_id
+    
     result = await supabase_insert("applications", payload, use_service_role=True)
     return result
 
@@ -182,7 +203,7 @@ async def update_application_status(
     application_id: str,
     status: str = Query(...),
     notes: Optional[str] = Query(None),
-) -> Dict[str, Any]:
+) -> Any:
     if not SUPABASE_URL:
         raise HTTPException(status_code=503, detail="Supabase not configured")
     payload: Dict[str, Any] = {"status": status, "updated_at": "now()"}
@@ -192,8 +213,8 @@ async def update_application_status(
     return result
 
 
-@app.patch("/api/applications/{application_id}/submit-prompt")
-async def mark_submit_prompt(application_id: str) -> Dict[str, Any]:
+@app.post("/api/applications/{application_id}/submit-prompt")
+async def mark_submit_prompt(application_id: str) -> Any:
     if not SUPABASE_URL:
         raise HTTPException(status_code=503, detail="Supabase not configured")
     payload = {"submit_prompted": True, "updated_at": "now()"}
@@ -202,7 +223,7 @@ async def mark_submit_prompt(application_id: str) -> Dict[str, Any]:
 
 
 @app.get("/api/applications/{application_id}/ready-pack")
-async def get_application_ready_pack(application_id: str) -> Dict[str, Any]:
+async def get_application_ready_pack(application_id: str) -> Any:
     if not SUPABASE_URL:
         raise HTTPException(status_code=503, detail="Supabase not configured")
     rows = await supabase_select("applications", filter_={"id": "eq." + application_id})
@@ -251,7 +272,7 @@ async def list_showcase_projects(featured_only: bool = Query(False)) -> List[Dic
 
 
 @app.post("/api/showcase/projects")
-async def create_showcase_project(payload: Dict[str, Any]) -> Dict[str, Any]:
+async def create_showcase_project(payload: Dict[str, Any]) -> Any:
     if not SUPABASE_URL:
         raise HTTPException(status_code=503, detail="Supabase not configured")
     result = await supabase_insert("project_showcase", payload, use_service_role=True)

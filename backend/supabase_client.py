@@ -13,6 +13,9 @@ import os
 from typing import Any, Dict, List, Optional
 
 import httpx
+from dotenv import load_dotenv
+
+load_dotenv()
 
 SUPABASE_URL = os.getenv("SUPABASE_URL", "").rstrip("/")
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "")
@@ -25,6 +28,7 @@ def _headers(use_service_role: bool = False) -> Dict[str, str]:
         "apikey": auth,
         "Authorization": f"Bearer {auth}",
         "Content-Type": "application/json",
+        "Prefer": "return=representation",
     }
 
 
@@ -36,7 +40,7 @@ async def supabase_insert(
     table: str,
     payload: Dict[str, Any],
     use_service_role: bool = True,
-) -> Dict[str, Any]:
+) -> Any:
     async with httpx.AsyncClient() as client:
         resp = await client.post(
             _url(table),
