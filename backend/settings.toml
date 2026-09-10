@@ -1,0 +1,15 @@
+node_version = "20"
+python_version = "3.14"
+
+[frontend]
+framework = "nextjs"
+ui = "tailwindcss"
+
+[backend]
+framework = "fastapi"
+database = "supabase"
+
+[goals]
+target_month = "september-2026"
+primary_role = "Python/Backend"
+secondary_roles = ["AI/GenAI", "Full Stack", "Java/Full Stack"]

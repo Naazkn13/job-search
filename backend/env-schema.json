@@ -1,0 +1,10 @@
+{
+  "required": ["SUPABASE_URL", "SUPABASE_ANON_KEY", "SUPABASE_SERVICE_ROLE_KEY"],
+  "optional": ["OPENAI_API_KEY"],
+  "notes": [
+    "Supabase service role key is used for writes in backend API.",
+    "Anon key is used for reads in Supabase client demo path.",
+    "Do not commit real keys.",
+    "For local dev without Supabase, backend runs in local mode with warnings."
+  ]
+}

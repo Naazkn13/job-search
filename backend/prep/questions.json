@@ -1,0 +1,135 @@
+{
+  "python": [
+    {"question": "Explain Python data types and when you would choose each one.", "scopes": ["python"]},
+    {"question": "What are list comprehensions and how do they differ from ordinary loops?", "scopes": ["python"]},
+    {"question": "Explain decorators and give a practical use case.", "scopes": ["python"]},
+    {"question": "How do generators and iterators differ?", "scopes": ["python"]},
+    {"question": "Explain shallow vs deep copy in Python.", "scopes": ["python"]},
+    {"question": "How does Python manage memory?", "scopes": ["python"]},
+    {"question": "What is the GIL and how does it affect concurrency?", "scopes": ["python"]},
+    {"question": "When would you use threading vs multiprocessing?", "scopes": ["python"]},
+    {"question": "Explain async/await in Python.", "scopes": ["python"]},
+    {"question": "How do you approach testing in Python?", "scopes": ["python"]}
+  ],
+  "fastapi_backend": [
+    {"question": "How do you design REST APIs in FastAPI?", "scopes": ["backend", "python"]},
+    {"question": "What is Pydantic used for in FastAPI?", "scopes": ["backend", "python"]},
+    {"question": "How do dependency injection and middleware work in FastAPI?", "scopes": ["backend"]},
+    {"question": "How do you handle authentication in a FastAPI app?", "scopes": ["backend"]},
+    {"question": "What is the difference between sync and async endpoints?", "scopes": ["backend", "python"]},
+    {"question": "How do you structure a scalable backend service?", "scopes": ["backend"]},
+    {"question": "How do you handle validation, error handling, and background tasks?", "scopes": ["backend"]},
+    {"question": "How would you integrate PostgreSQL efficiently with FastAPI?", "scopes": ["backend", "python"]}
+  ],
+  "sql": [
+    {"question": "Write a SQL query using JOIN and GROUP BY.", "scopes": ["backend", "sql"]},
+    {"question": "What are window functions and when would you use them?", "scopes": ["backend", "sql"]},
+    {"question": "Explain indexes and query optimization.", "scopes": ["backend", "sql"]},
+    {"question": "How do transactions and normalization work?", "scopes": ["backend", "sql"]},
+    {"question": "How do you debug a slow query?", "scopes": ["backend", "sql"]}
+  ],
+  "java": [
+    {"question": "Explain Java OOP concepts.", "scopes": ["java"]},
+    {"question": "How do Collections work in Java?", "scopes": ["java"]},
+    {"question": "What is multithreading and concurrency in Java?", "scopes": ["java"]},
+    {"question": "Explain JVM basics and memory concepts.", "scopes": ["java"]},
+    {"question": "How do Spring Boot and REST APIs fit together?", "scopes": ["java", "backend"]},
+    {"question": "What is JPA/Hibernate used for?", "scopes": ["java", "backend"]},
+    {"question": "How do microservices differ from a monolith?", "scopes": ["java", "backend"]}
+  ],
+  "system_design": [
+    {"question": "How would you design a REST API for a compliance reporting system?", "scopes": ["backend", "system_design"]},
+    {"question": "How do you approach authentication and authorization in a system design?", "scopes": ["backend", "system_design"]},
+    {"question": "How would you scale a service that processes large document uploads?", "scopes": ["backend", "system_design"]},
+    {"question": "What is caching and where would you use it?", "scopes": ["backend", "system_design"]},
+    {"question": "How do queues help in backend systems?", "scopes": ["backend", "system_design"]}
+  ],
+  "ai_genai": [
+    {"question": "What are embeddings and how are they used?", "scopes": ["ai_genai"]},
+    {"question": "Explain RAG and why it is useful.", "scopes": ["ai_genai"]},
+    {"question": "How do you chunk documents for retrieval?", "scopes": ["ai_genai"]},
+    {"question": "What is a vector database and how does retrieval work?", "scopes": ["ai_genai"]},
+    {"question": "How do you reduce hallucinations in an LLM app?", "scopes": ["ai_genai"]},
+    {"question": "What are AI agents and tool calling?", "scopes": ["ai_genai"]},
+    {"question": "How would you evaluate an AI application?", "scopes": ["ai_genai"]},
+    {"question": "How do you deploy an AI app in production?", "scopes": ["ai_genai", "backend"]}
+  ],
+  "hr": [
+    {"question": "Tell me about yourself.", "scopes": ["hr"]},
+    {"question": "Why are you looking for a new role?", "scopes": ["hr"]},
+    {"question": "What are your strongest technical skills?", "scopes": ["hr"]},
+    {"question": "What is the most challenging project you have worked on?", "scopes": ["hr"]},
+    {"question": "How do you handle deadlines and feedback?", "scopes": ["hr"]},
+    {"question": "Where do you see yourself in the next 1-2 years?", "scopes": ["hr"]},
+    {"question": "What salary are you expecting?", "scopes": ["hr"]},
+    {"question": "Are you comfortable with relocation or shift requirements?", "scopes": ["hr"]}
+  ],
+  "project_story": {
+    "biometric_attendance": {
+      "title": "Biometric Attendance & Salary System",
+      "pitch": "End-to-end attendance and payroll system with biometric hardware sync, backend logic, frontend, and mobile app.",
+      "architecture": "ZKTeco SDK sync, FastAPI backend, PostgreSQL, React frontend, Expo mobile app, automated payslip generation.",
+      "hardest_part": "Aligning real-time attendance sync with salary engine logic and deployment across web and mobile.",
+      "impact": "Reduced monthly payroll processing from over 2 hours to under 30 minutes.",
+      "likely_questions": [
+        "How did you handle biometric hardware integration?",
+        "How did you design the salary engine?",
+        "How did you deal with leave, overtime, and deductions?",
+        "What would you improve next?"
+      ]
+    },
+    "nsa_sports": {
+      "title": "NSA Sports Platform",
+      "pitch": "Role-based sports platform with registration, document review, approval workflows, automated emails, and CMS-driven content.",
+      "architecture": "Full-stack platform with role-based access, document workflow, configurable CMS, and automated rejection/reason emails.",
+      "hardest_part": "Designing approval/rejection workflows and CMS-driven content without requiring code changes.",
+      "impact": "Enabled player registration and club-based signups with admin-controlled review and automated communication.",
+      "likely_questions": [
+        "How did you structure the role-based access model?",
+        "How did the CMS-driven content work?",
+        "How did you handle automated emails?",
+        "What would you improve next?"
+      ]
+    },
+    "cas_parser": {
+      "title": "CAS Parser",
+      "pitch": "Python desktop app extracting Demat holdings, mutual fund data, and transactions from unstructured CDSL PDF statements.",
+      "architecture": "Tauri + PyInstaller desktop app, PyMuPDF, tabula-py, Pandas, ~98% extraction accuracy on 500+ statements/month.",
+      "hardest_part": "Handling unstructured PDF format variations and maintaining accuracy across different statement layouts.",
+      "impact": "Eliminated more than 10 hours/week of manual compliance data entry.",
+      "likely_questions": [
+        "How did you handle PDF parsing challenges?",
+        "How did you measure accuracy?",
+        "What was the workflow from raw PDF to structured data?",
+        "What would you improve next?"
+      ]
+    },
+    "fashiongallery": {
+      "title": "FashionGallery",
+      "pitch": "AI-powered fashion search and discovery with visual and text-based retrieval, clip-style embeddings, and RAG-style retrieval over fashion content.",
+      "architecture": "FastAPI backend, React/Next.js frontend, embedding-based similarity, RAG retrieval, Docker and deployment-ready structure.",
+      "hardest_part": "Making retrieval quality explainable and connecting embeddings, vector search, and retrieval into a usable demo.",
+      "impact": "Demonstrates practical AI application work beyond toy chatbots.",
+      "likely_questions": [
+        "How does embedding-based search work?",
+        "How does RAG improve results here?",
+        "How would you evaluate retrieval quality?",
+        "What are the limitations of this approach?"
+      ]
+    },
+    "infomatics_regtech": {
+      "title": "Infomatics RegTech / BFSI Work",
+      "pitch": "Enterprise RegTech and BFSI software involving SEBI compliance, trade surveillance, reconciliation, maker-checker workflows, and RBAC.",
+      "architecture": "Multi-tier approval workflows, automated reconciliation across multiple data sources, role-based access, automated reporting and email triggers.",
+      "hardest_part": "Handling complex compliance rules, restricted-trade detection, and workflow correctness across multiple user roles.",
+      "impact": "Automated 67+ SEBI report types, 500+ monthly CDSL statements with ~98% accuracy, and HR processing time reduced by ~60% via leave management.",
+      "likely_questions": [
+        "What was your specific contribution?",
+        "How did you approach RBAC and approval workflows?",
+        "How did you handle data reconciliation?",
+        "What production or UAT issues did you face?",
+        "What would you improve next?"
+      ]
+    }
+  }
+}

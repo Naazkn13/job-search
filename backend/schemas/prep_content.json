@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Prep Content",
+  "type": "object",
+  "required": ["category", "questions"],
+  "properties": {
+    "category": {
+      "type": "string",
+      "enum": ["python","fastapi_backend","sql","java","system_design","ai_genai","hr","project_story"]
+    },
+    "role_scope": { "type": "string" },
+    "questions": { "type": "array", "items": { "type": "object" } },
+    "notes": { "type": "string" }
+  }
+}

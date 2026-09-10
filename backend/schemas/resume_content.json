@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resume Content",
+  "type": "object",
+  "required": ["version", "headline", "summary", "skills_order", "experience", "projects", "education"],
+  "properties": {
+    "version": { "type": "string", "enum": ["A","B","C"] },
+    "headline": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "skills_order": { "type": "array", "items": { "type": "string" } },
+    "experience": { "type": "array", "items": { "type": "object" } },
+    "projects": { "type": "array", "items": { "type": "object" } },
+    "education": { "type": "string", "minLength": 1 },
+    "certifications": { "type": "string" },
+    "meta": { "type": "object" }
+  }
+}

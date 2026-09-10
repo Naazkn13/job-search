@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Application",
+  "type": "object",
+  "required": ["role", "resume_version"],
+  "properties": {
+    "company_id": { "type": ["string", "null"] },
+    "company_name": { "type": "string" },
+    "role": { "type": "string", "minLength": 1 },
+    "location": { "type": "string" },
+    "job_link": { "type": "string" },
+    "salary_expected": { "type": "string" },
+    "resume_version": { "type": "string", "enum": ["A","B","C"] },
+    "status": { "type": "string", "enum": ["planned","prepared","applied","assessment","interview_1","interview_2","hr","offer","rejected","withdrawn"] },
+    "applied_at": { "type": ["string","null"] },
+    "assessment_at": { "type": ["string","null"] },
+    "interview_1_at": { "type": ["string","null"] },
+    "interview_2_at": { "type": ["string","null"] },
+    "hr_at": { "type": ["string","null"] },
+    "result": { "type": "string" },
+    "salary_offered": { "type": "string" },
+    "jd_text": { "type": "string" },
+    "jd_notes": { "type": "string" },
+    "changes_made": { "type": "string" },
+    "notes": { "type": "string" },
+    "submit_prompted": { "type": "boolean" },
+    "submitted_at": { "type": ["string","null"] }
+  }
+}

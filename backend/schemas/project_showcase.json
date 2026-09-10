@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project Showcase",
+  "type": "object",
+  "required": ["title", "one_line_pitch", "technologies"],
+  "properties": {
+    "title": { "type": "string", "minLength": 1 },
+    "one_line_pitch": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "technologies": { "type": "array", "items": { "type": "string" } },
+    "live_link": { "type": "string" },
+    "repo_link": { "type": "string" },
+    "status": { "type": "string", "enum": ["ready","in_progress","not_yet"] },
+    "resume_versions": { "type": "array", "items": { "type": "string", "enum": ["A","B","C"] } },
+    "resume_bullets": { "type": "array", "items": { "type": "string" } },
+    "interview_story": { "type": "object" },
+    "featured": { "type": "boolean" }
+  }
+}

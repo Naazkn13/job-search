@@ -1,0 +1,227 @@
+{
+  "A": {
+    "version": "A",
+    "headline": "Software Developer | Python | FastAPI | PostgreSQL | REST APIs | Docker",
+    "summary": "Software developer with strong Python and backend experience, having worked on enterprise BFSI and RegTech platforms involving SEBI compliance, trade surveillance, reconciliation, and workflow automation. Experienced across Python, FastAPI, PostgreSQL, React, Docker, and CI/CD, with additional full-stack capability and Java exposure.",
+    "skills_order": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "REST APIs",
+      "Microservices",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Docker",
+      "Azure DevOps",
+      "CI/CD",
+      "Git/GitHub Actions",
+      "SQL",
+      "Java"
+    ],
+    "experience": [
+      {
+        "company": "Infomatics Services Pvt. Ltd.",
+        "role": "Software Developer",
+        "location": "Mumbai",
+        "period": "June 2025 – July 2026",
+        "bullets": [
+          "Engineered a pre-clearance engine with multi-tier approval workflows and automated ECAS/BENPOS/KFin/CAMS reconciliation across 4 data sources, flagging restricted trades that previously required manual cross-checking.",
+          "Enforced grey-list and UPSI restrictions and defaulter tracking with role-based access control (RBAC) and bcrypt authentication across all user tiers.",
+          "Co-developed a compliance platform automating 67+ SEBI report types across 43 maker-checker workflows and 32+ automated email triggers, deployed into UAT for a leading financial institution.",
+          "Developed a Python desktop application using Tauri and PyInstaller to extract Demat holdings, mutual fund data, and transactions from unstructured CDSL PDF statements using PyMuPDF, tabula-py, and Pandas.",
+          "Processed 500+ CDSL statements per month with approximately 98% extraction accuracy, eliminating more than 10 hours per week of manual compliance data entry.",
+          "Delivered a company-wide leave management system supporting 50+ employees with auto-escalation workflows, real-time balance dashboards, and configurable approval rules, reducing HR processing time by approximately 60%."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Biometric Attendance & Salary System",
+        "type": "Personal Project",
+        "link": "https://attendance-sigma-one.vercel.app",
+        "repo": "https://github.com/Naazkn13/biometric-attendance-system",
+        "bullets": [
+          "Deployed a biometric attendance system with ZKTeco SDK real-time synchronization, FastAPI backend, React frontend, and Expo mobile app.",
+          "Built a salary engine handling 30-day cycles, paid leave accrual, overtime, and deductions, reducing monthly payroll processing from over 2 hours to under 30 minutes.",
+          "Generated automatic payslips and supported end-to-end deployment across web and Android APK."
+        ]
+      },
+      {
+        "name": "NSA Sports Platform",
+        "type": "Personal Project",
+        "link": "https://nsasports.co.in",
+        "repo": "https://github.com/Naazkn13/nsa-sports-platform",
+        "bullets": [
+          "Role-based sports platform where players register individually or under a club, with admin document review, approval/rejection, and automated reason emails.",
+          "Built with a fully configurable CMS so content can be modified without code changes.",
+          "Full-stack platform covering registration, document workflow, CMS-driven content, and role-based access."
+        ]
+      }
+    ],
+    "education": "BSc Information Technology | Bhavan's College, Mumbai University | 2021 – 2024",
+    "certifications": "Advanced Program in Java Full Stack Development | DVOC Institute (Skill India / NSDC) | Dec 2025 | ID: CERT_3243029_5",
+    "meta": {
+      "target_roles": ["Python Developer", "Backend Developer", "Software Engineer", "Full Stack Python Developer"],
+      "best_fit": "Python/Backend roles, BFSI/RegTech-flavored applications",
+      "primary_proof": "Infomatics RegTech work + CAS Parser + Biometric Attendance + Salary System",
+      "notes": "Lead with Python/backend. Use RegTech/BFSI as differentiator."
+    }
+  },
+  "B": {
+    "version": "B",
+    "headline": "Software Developer | Python | FastAPI | AI/GenAI | RAG | LLM Applications",
+    "summary": "Software developer with strong Python and backend experience, building AI and GenAI applications on top of enterprise data and real workflows. Experienced across Python, FastAPI, PostgreSQL, React, Docker, and CI/CD, with a growing specialization in LLM applications, RAG, embeddings, vector retrieval, and agent-based systems. Brings direct BFSI/RegTech domain knowledge that can be wired into AI systems.",
+    "skills_order": [
+      "Python",
+      "FastAPI",
+      "AI/GenAI",
+      "LLM Applications",
+      "RAG",
+      "Embeddings",
+      "Vector Search",
+      "APIs",
+      "PostgreSQL",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Docker",
+      "CI/CD",
+      "Git/GitHub Actions"
+    ],
+    "experience": [
+      {
+        "company": "Infomatics Services Pvt. Ltd.",
+        "role": "Software Developer",
+        "location": "Mumbai",
+        "period": "June 2025 – July 2026",
+        "bullets": [
+          "Worked on enterprise RegTech and BFSI products involving SEBI compliance, trade surveillance, reconciliation, maker-checker workflows, and RBAC.",
+          "Built systems that automate 67+ SEBI report types, process 500+ monthly CDSL PDF statements with ~98% extraction accuracy, and reduce manual compliance work by more than 10 hours per week.",
+          "Delivered a leave management system with configurable approval rules and auto-escalation, reducing HR processing time by approximately 60%.",
+          "Domain exposure directly relevant to building AI systems on top of compliance, reporting, and document-heavy workflows."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "FashionGallery",
+        "type": "AI Project",
+        "link": "https://fashion-gallery.vercel.app",
+        "repo": "https://github.com/Naazkn13/FashionGallery",
+        "bullets": [
+          "AI-powered fashion search and discovery application with visual and text-based retrieval.",
+          "Uses clip-style embeddings for image-based similarity and RAG-style retrieval over fashion content.",
+          "FastAPI backend, React/Next.js frontend, with Docker and deployment-ready architecture."
+        ]
+      },
+      {
+        "name": "Biometric Attendance & Salary System",
+        "type": "Personal Project",
+        "link": "https://attendance-sigma-one.vercel.app",
+        "repo": "https://github.com/Naazkn13/biometric-attendance-system",
+        "bullets": [
+          "End-to-end system with ZKTeco biometric hardware sync, FastAPI backend, React frontend, and Expo mobile app.",
+          "Salary engine supporting 30-day cycles, paid leave accrual, overtime, and deductions with automatic payslip generation.",
+          "Strong example of building practical backend systems with real-world deployment."
+        ]
+      },
+      {
+        "name": "AgentBox / AI Developer Tooling",
+        "type": "Personal Project",
+        "link": "https://github.com/Naazkn13/agentbox-ai",
+        "repo": "https://github.com/Naazkn13/agentbox-ai",
+        "bullets": [
+          "Developer tooling work involving AI/agent-oriented functionality and automation.",
+          "Shows active interest in AI-assisted development, agent workflows, and extensible tooling."
+        ]
+      }
+    ],
+    "education": "BSc Information Technology | Bhavan's College, Mumbai University | 2021 – 2024",
+    "certifications": "Advanced Program in Java Full Stack Development | DVOC Institute (Skill India / NSDC) | Dec 2025 | ID: CERT_3243029_5",
+    "meta": {
+      "target_roles": ["AI/GenAI Developer", "AI Application Developer", "Software Engineer"],
+      "best_fit": "roles mentioning LLMs, RAG, embeddings, agents, AI applications",
+      "primary_proof": "FashionGallery + AgentBox + RegTech data/automation background",
+      "notes": "Only use this version strongly when FashionGallery is demo-ready and explainable. Otherwise risk of keyword-heavy positioning."
+    }
+  },
+  "C": {
+    "version": "C",
+    "headline": "Software Developer | Java | Python | React | REST APIs | Full Stack",
+    "summary": "Software developer with a strong foundation in Java and full-stack development, along with practical Python and backend experience. Experienced across Java, Python, React, REST APIs, SQL, Docker, and deployment workflows, with enterprise software exposure in compliance and workflow-heavy systems.",
+    "skills_order": [
+      "Java",
+      "Python",
+      "React",
+      "REST APIs",
+      "SQL",
+      "TypeScript",
+      "JavaScript",
+      "FastAPI",
+      "PostgreSQL",
+      "Spring Boot",
+      "Microservices",
+      "Docker",
+      "Azure DevOps",
+      "CI/CD",
+      "Git/GitHub Actions"
+    ],
+    "experience": [
+      {
+        "company": "Infomatics Services Pvt. Ltd.",
+        "role": "Software Developer",
+        "location": "Mumbai",
+        "period": "June 2025 – July 2026",
+        "bullets": [
+          "Built enterprise software across backend and full-stack work, including compliance workflows, approval systems, and automation.",
+          "Delivered systems handling complex business rules, role-based access, and configurable workflows.",
+          "Designed and deployed software used by real users, with practical full-stack and backend experience."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Biometric Attendance & Salary System",
+        "type": "Personal Project",
+        "link": "https://attendance-sigma-one.vercel.app",
+        "repo": "https://github.com/Naazkn13/biometric-attendance-system",
+        "bullets": [
+          "Built an end-to-end attendance and payroll system with hardware integration, backend logic, frontend, and mobile app.",
+          "Strong practical evidence of building full systems, not just small demos.",
+          "Can be discussed in both Java and Python/full-stack contexts depending on the role."
+        ]
+      },
+      {
+        "name": "NSA Sports Platform",
+        "type": "Personal Project",
+        "link": "https://nsasports.co.in",
+        "repo": "https://github.com/Naazkn13/nsa-sports-platform",
+        "bullets": [
+          "Full-stack role-based platform with registration, document review, approval workflows, and CMS-driven content.",
+          "Good fit for discussing backend, frontend, and workflow design together.",
+          "Shows practical full-stack delivery beyond tutorial-level work."
+        ]
+      },
+      {
+        "name": "Java Projects and Certification",
+        "type": "Certification + Projects",
+        "link": "",
+        "repo": "",
+        "bullets": [
+          "Completed Advanced Program in Java Full Stack Development (DVOC Institute, Skill India / NSDC).",
+          "Built Java-based projects including QR-based attendance functionality and MySQL/JDBC work.",
+          "Java is not the strongest current professional stack, but the foundation supports Java/Full Stack interview preparation."
+        ]
+      }
+    ],
+    "education": "BSc Information Technology | Bhavan's College, Mumbai University | 2021 – 2024",
+    "certifications": "Advanced Program in Java Full Stack Development | DVOC Institute (Skill India / NSDC) | Dec 2025 | ID: CERT_3243029_5",
+    "meta": {
+      "target_roles": ["Java Developer", "Java Full Stack Developer", "Full Stack Developer", "Software Engineer"],
+      "best_fit": "Java-heavy or full-stack-leaning MNC roles",
+      "primary_proof": "Java certification + Java projects + full-stack delivery + Python as secondary",
+      "notes": "Use mainly for Java or full-stack roles. Do not position as primary identity."
+    }
+  }
+}
